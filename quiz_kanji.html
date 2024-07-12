@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>카르테 단어 연습기: Kanji Quiz</title>
+    <style>
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #f8f9fa;
+        border: 1px solid #ccc;
+        text-decoration: none;
+        color: #333;
+    }
+    .button:hover {
+        background-color: #e9ecef;
+    }
+</style>
+</head>
+<body>
+    <h1>Kanji Quiz</h1>
+    <p>What is the Kanji for: {{ korean_word if not done else '' }}?</p>
+    <form method="post">
+        {% if not done %}
+            <input type="text" name="user_input" autofocus>
+            <button type="submit">Check Answer</button>
+        {% else %}
+            <a href="/quiz_kanji">Try another word</a>
+        {% endif %}
+    </form>
+    <a href="/" class="button">Quit Quiz</a>
+    <p>{{ feedback }}</p>
+    <hr>
+    <a href="/">Back to Home</a>
+</body>
+</html>

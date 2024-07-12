@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly Kanji Quiz</title>
+</head>
+<body>
+    <h1>Kanji Quiz</h1>
+    <ol>
+    {% for row in rows %}
+        <li>{{ row['한국어'] }}</li>
+    {% endfor %}
+    </ol>
+    <a href="/answers_weekly_kanji_quiz">Answers</a>
+    <a href="/" class="button">Back to Home</a>
+</body>
+</html>

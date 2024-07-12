@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>카르테 단어 연습기: Hiragana Quiz</title>
+    <style>
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #f8f9fa;
+        border: 1px solid #ccc;
+        text-decoration: none;
+        color: #333;
+    }
+    .button:hover {
+        background-color: #e9ecef;
+    }
+</style>
+</head>
+<body>
+    <h1>Hiragana Quiz</h1>
+    <p>What is the reading for: {{ kanji if not done else '' }}?</p>
+    <form method="post">
+        {% if not done %}
+            <input type="text" name="reading" autofocus>
+            <input type="hidden" name="kanji" value="{{ kanji }}">
+            <button type="submit">Check Answer</button>
+        {% else %}
+            <a href="/quiz_hiragana">Try another word</a>
+        {% endif %}
+    </form>
+    <a href="/" class="button">Quit Quiz</a>
+    <p>{{ feedback }}</p>
+</body>
+</html>

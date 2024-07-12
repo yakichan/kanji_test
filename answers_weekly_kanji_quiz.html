@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Answers - Weekly Kanji Quiz</title>
+</head>
+<body>
+    <h1>Answers</h1>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>Korean Word</th>
+            <th>Kanji</th>
+            <th>Reading</th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ row['한국어'] }}</td>
+            <td>{{ row['漢字'] }}</td>
+            <td>{{ row['読み方'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/" class="button">Back to Home</a>
+</body>
+</html>
