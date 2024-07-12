@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +9,37 @@
      crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Welcome to 카르테 단어 연습기!</h1>
+    <h1>카르테 단어 연습기</h1>
+    <h4>오신 것을 환영합니다! 😊</h4>
+    <h3>퀴즈 목록</h3>
     <a href="/quiz_hiragana">Start Hiragana Quiz</a></br>
     <a href="/quiz_kanji">Start Kanji Quiz</a></br>
     <a href="/weekly_kanji_quiz">Start Weekly Random Kanji Quiz</a><br>
     <form method="post" action="/set_seed">
     <input type="text" name="seed" placeholder="Enter Seed" />
     <button type="submit">Set Seed</button>
+    <hr>
+    <h3>📌 퀴즈 기능 안내</h2>
+    <h4>Hiragana, Kanji Quiz</h4>
+    <ul>
+        <li>3회 오답 입력 시 정답을 확인할 수 있습니다.</li>
+    </ul>
+
+    <h4>Weekly Random Kanji Quiz</h4>
+    <ol>
+        <li>학습하고자 하는 단어 수를 선택하세요.</li>
+        <li>무작위로 선택된 한국어 뜻이 표시됩니다.</li>
+        <li>해당하는 일본어 단어나 읽는 법을 별도의 종이에 적으세요.</li>
+        <li>'Answers' 버튼을 눌러 정답을 확인하세요.</li>
+    </ol>
+        <h4>📎 개발 중인 기능</h4>
+        <ul>
+        <li><strong>Set Seed:</strong> 동일한 단어로 재시험이 가능하도록 시드 기능을 구현 중입니다.</li>
+        </ul>
+    <hr>
+    <h3>소개</h3>
+    <p>본 사이트는 일본 의사 면허 취득을 위해 JMLE를 준비하는 한국 의사 및 의대생들의 일본 의학용어 학습을 돕고자 제작되었습니다.<br>컨텐츠 제작 시 홍문기, 서동경 선생님의 저서 『살아있는 의료 일본어』에 수록된 단어들을 참고하였습니다. 이 사이트가 일본어 진료능력시험과 일본 의사국가시험 준비에 도움이 되기를 바랍니다.<br>오류 수정이나 기능 개선 제안 등 피드백을 주실 분은 아래 이메일로 연락 주시기 바랍니다.</p>
+    <p>✉️: <b>narisiosa@naver.com</b><br></p>
 </form>
 </body>
 </html>
