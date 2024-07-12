@@ -74,6 +74,28 @@ def quiz_kanji():
     session['attempts'] = 0
     return render_template("quiz_kanji.html", korean_word=row['hangul_word'], feedback="", done=False)
 
+@app.route("/weekly_kanji_quiz", methods=["GET", "POST"])
+def weekly_kanji_quiz():
+    if request.method == "POST":
+        try:
+            num_rows = int(request.form['num_rows'])
+            session['selected_rows'] = words.sample(n=num_rows).to_dict(orient='records')
+            return redirect(url_for('display_weekly_kanji_quiz'))
+        except ValueError:
+            return render_template("weekly_kanji_quiz.html", error="Please enter a valid number")
+    return render_template("weekly_kanji_quiz.html")
+
+@app.route("/display_weekly_kanji_quiz", methods=["GET"])
+def display_weekly_kanji_quiz():
+    selected_rows = session.get('selected_rows', [])
+    print("Selected rows:", selected_rows)  # Debug: print the data
+    return render_template("display_weekly_kanji_quiz.html", rows=selected_rows)
+
+@app.route("/answers_weekly_kanji_quiz", methods=["GET"])
+def answers_weekly_kanji_quiz():
+    selected_rows = session.get('selected_rows', [])
+    return render_template("answers_weekly_kanji_quiz.html", rows=selected_rows)
+
 @app.route("/set_seed", methods=["POST"])
 def set_seed():
     seed = request.form.get("seed")
