@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'fallback_secret_key')
 
 # Load the data into 'words'
-data_path = "카르테 단어_ 감별진단_중복제거.xlsx"
+data_path = "kanji_data.xlsx"
 words = pd.read_excel(data_path)
 
 @app.route("/", methods=["GET"])
