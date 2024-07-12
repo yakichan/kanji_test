@@ -17,9 +17,9 @@
         {% for row in rows %}
         <tr>
             <td>{{ loop.index }}</td>
-            <td>{{ row['한국어'] }}</td>
-            <td>{{ row['漢字'] }}</td>
-            <td>{{ row['読み方'] }}</td>
+            <td>{{ row['hangul_word'] }}</td>
+            <td>{{ row['kanji_word'] }}</td>
+            <td>{{ row['yomikata_word'] }}</td>
         </tr>
         {% endfor %}
     </table>
