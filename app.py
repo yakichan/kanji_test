@@ -22,7 +22,7 @@ def quiz_hiragana():
     if request.method == "POST":
         user_input = request.form.get("reading")
         kanji = session.get("kanji")
-        correct_reading = words[words['漢字'] == kanji]['読み⽅'].values[0]
+        correct_reading = words[words['kanji_word'] == kanji]['yomikata_word'].values[0]
         if user_input == correct_reading:
             feedback = "Correct!"
             return render_template("quiz_hiragana.html", feedback=feedback, done=True)
@@ -37,9 +37,9 @@ def quiz_hiragana():
                 return render_template("quiz_hiragana.html", kanji=kanji, feedback=feedback, done=False)
 
     row = words.sample().iloc[0]
-    session['kanji'] = row['漢字']
+    session['kanji'] = row['kanji_word']
     session['attempts'] = 0
-    return render_template("quiz_hiragana.html", kanji=row['漢字'], feedback="", done=False)
+    return render_template("quiz_hiragana.html", kanji=row['kanji_word'], feedback="", done=False)
 
 @app.route("/quiz_kanji", methods=["GET", "POST"])
 def quiz_kanji():
@@ -49,7 +49,7 @@ def quiz_kanji():
     if request.method == "POST":
         kanji = session.get("kanji")
         user_input = request.form.get("user_input", "")
-        correct_kanji = words[words['한국어'] == session.get("korean_word")]['漢字'].values[0]
+        correct_kanji = words[words['hangul_word'] == session.get("korean_word")]['kanji_word'].values[0]
 
         if user_input == correct_kanji:
             feedback = "Correct!"
@@ -69,10 +69,10 @@ def quiz_kanji():
         return render_template("quiz_kanji.html", feedback=feedback, done=done, korean_word=session.get("korean_word"))
 
     row = words.sample().iloc[0]
-    session['kanji'] = row['漢字']
-    session['korean_word'] = row['한국어']
+    session['kanji'] = row['kanji_word']
+    session['korean_word'] = row['hangul_word']
     session['attempts'] = 0
-    return render_template("quiz_kanji.html", korean_word=row['한국어'], feedback="", done=False)
+    return render_template("quiz_kanji.html", korean_word=row['hangul_word'], feedback="", done=False)
 
 @app.route("/set_seed", methods=["POST"])
 def set_seed():
