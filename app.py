@@ -1,9 +1,10 @@
 import pandas as pd
 from flask import Flask, request, render_template, session, redirect, url_for
 import random
+import os
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'fallback_secret_key')
 
 # Load the data into 'words'
 data_path = "카르테 단어_ 감별진단_중복제거.xlsx"
